@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+<title>Video Playlist</title>
+
+<style>
+body {background-color: #292626;
+font-family: comfortaa}
+h2 {font-size: 30px;
+color: #1E88E5;}
+.column 
+{float: left;
+width: 37.55%;
+height: 60px;
+margin-right: 15px;}
+.row:after 
+{content: "";
+display: table;
+clear: both;}
+.dropbtn 
+{background-color: #292626;
+color: silver;
+padding: 5px;
+margin: 8px;
+font-size: 18px;
+cursor: pointer;
+margin-left: 185px;
+float: right;
+outline: none;
+display: inline-block;
+border: 1px solid siver;
+border-radius: 8px;}
+.dropbtn:hover, .dropbtn:focus 
+{background-color: none}
+.dropdown 
+{position: relative;
+display: inline-block;}
+.dropdown-content 
+{display: none;
+position: absolute;
+background-color: #212121;
+min-width: 150px;
+padding: 5px;
+margin-top: 49px;
+margin-left: 70px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+z-index: 1;
+outline: none;
+border: 2px solid silver;
+border-radius: 15px}
+.dropdown-content a
+{color: #fff;
+font-size: 22px;
+padding: 10px;
+text-decoration: none;
+display: block;
+border-bottom: 1px solid #000;
+border-radius: 10px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)}
+.dropdown-content a:hover 
+{background-color: lightgrey}
+.show {display:block;}
+.container * 
+{margin: 0;
+padding: 0;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+-webkit-transition: 0.5s;
+-o-transition: 0.5s;
+transition: 0.5s;}
+.container *:after , .container *:before 
+{margin: 0;
+padding: 0;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box}
+.container 
+{width: 410px;
+background: #292626;
+margin: auto;
+right: 1px;
+position: relative;
+height: 280px;
+border-radius: 15px;}
+.vidcontainer 
+{width: 100%;
+height: 100%;
+float: right;
+position: relative;
+overflow: hidden}
+video 
+{width: 100%;
+color: #212121;
+border-top: 1px solid #212121;
+border-radius: 15px}
+.videolist 
+{float: left;
+width: 100%;
+height: 100%;
+position: relative}
+.vids::-webkit-scrollbar 
+{width: 3px;
+border-radius: 50px}
+.vids::-webkit-scrollbar-thumb 
+{background-color: #1E88E5;
+border-radius: 30px;
+width: 30px}
+.vids::-webkit-scrollbar-thumb:hover
+{background-color: #fff}
+.vids::-webkit-scrollbar-thumb:active
+{background-color: #ccc}
+.vids 
+{background-color: #292626;
+max-height: 450px;
+min-height: 450px;
+overflow-y: scroll;
+list-style: none;
+direction: rtl}
+.vids a 
+{text-decoration: none;
+color: #fff;
+font-size: 22px;
+display: block;
+border-bottom: 1px solid #000;
+border-radius: 12px;
+padding: 15px;
+margin: 15px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4)}
+.controllers 
+{position: absolute;
+width: 100%;
+height: 100%;
+background-color: #292626}
+.controllers button 
+{border: 1px solid #E7E7E7;
+background-color: #FFFFFF;
+color: #1E88E5;
+width: 30px;
+border-radius: 10px;
+margin: 5px;
+box-shadow: 1px 1px 3px #4C4C4C;
+outline: none;
+font-size: 18px;
+display: inline-block;
+float: left}
+.controllers button:focus 
+{box-shadow: 1px 0px 7px #4C4C4C;
+border-color: #ff8d00;
+color: #ff8d00;
+background-color: #4C4C4C}
+.btnPlay:after 
+{content: "\f04b";
+font-family: 'FontAwesome'}
+.paused:after 
+{content: "\f04c"}
+.sound:after 
+{content: "\f027";
+font-family: 'FontAwesome'}
+.sound2:after 
+{content: "\f028"}
+.muted:after 
+{content: "\f026"}
+.btnFS:after
+{content: "\f065";
+font-family: 'FontAwesome'}
+.playing 
+{background-color: #1E88E5;
+border: 1px solid #1E88E5!important;
+-webkit-transition: 0s;
+-o-transition: 0s;
+transition: 0s}
+.playing:after 
+{content: "\f01d";
+font-family: 'FontAwesome';
+color: #fff;
+float: left}
+.topControl 
+{position: absolute;
+display: block;
+width: 100%;
+bottom: 50px;
+background-color: #fff;
+z-index: 1}
+.progress span 
+{height: 100%;
+position: absolute;
+top: 0;
+left: 0;
+display: block}
+.timeBar
+{z-index:10;
+width:0;
+background: #ff8d00}
+.bufferBar
+{z-index:5;
+width:0;
+background: #eee}
+.time
+{width:12%;
+float:right;
+text-align:center;
+font-size:11px;
+line-height:12px;
+right: -12%;
+opacity: 0;
+position: absolute;}
+.topControl:hover .time 
+{right: 0;
+opacity: 1;}
+.topControl:hover .progress 
+{width: 88%;
+height: 12px;}
+.volume 
+{position: relative;
+cursor: pointer;
+width: 70px;
+height: 10px;
+float: left;
+margin-top: 10px;
+margin-right: 15px;
+background-color: lightgrey;
+border-radius: 30px}
+.volumeBar
+{display: block;
+height: 100%;
+position: absolute;
+top: 0;
+left: 0;
+background-color: #1E88E5;
+z-index: 10px;}
+.loading 
+{width: 0px;
+background-color: rgba(255,141,0,0.5);
+height: 405px;
+position: absolute;
+top: 0;}
+i.fa.fa-spinner.fa-spin 
+{height: 50px;
+width: 50px;
+font-size: 70px;
+color: #1E88E5;
+text-shadow: 0px 0px 8px grey;
+top: 110px;
+left: 175px;
+position: absolute;}
+.disabled 
+{pointer-events: none;
+cursor: not-allowed;
+background-color: #C2C2C2!important;}
+ul.speedcnt 
+{display: none;
+position: absolute;
+right: 30px;
+bottom: 60px;
+background-color: #fff;
+border-radius: 5px;
+list-style: none;
+-webkit-transition: 0s;
+-o-transition: 0s;
+transition: 0s;}
+ul.speedcnt li {text-align: center;
+font-family: 'verdana', tahoma , serif;
+font-size: 13px;
+padding: 5px 20px;
+cursor: pointer;
+display: block;
+border-bottom: 1px solid #ccc;}
+ul.speedcnt li:last-child 
+{border-bottom: none;}
+ul.speedcnt li.selected
+{background-color: rgba(255, 141, 0, 0.6);}
+
+</style>
+</head>
+<body>
+
+<div class="row"><div class="column">
+<h2>Arabic TV</h2>
+</div>
+<div class="column">
+<div class="dropdown">
+<button onclick="myFunction()" class="dropbtn">MENU</button>
+<div id="myDropdown" class="dropdown-content">
+<p><a href="go:My">• Malaysia</a></p>
+<p><a href="go:Ind">• Indonesia</a></p>
+<p><a href="go:Th">• Thailand</a></p>
+<p><a href="go:Jp">• Japan</a></p>
+<p><a href="go:Kr">• Korea</a></p>
+<p><a href="go:Mv">• Movies</a></p>
+<p><a href="go:Sp">• Sports</a></p>
+<p><a href="go:Wt">• Watch TV</a></p>
+<p><a href="go:St">• Stirr</a></p>
+<p><a href="go:Ln">• Local Now</a></p>
+<p><a href="go:Kd">• Kids TV</a></p>
+</div></div></div></div>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<div class="container">
+<div class="vidcontainer">
+<video id="myvid" >
+</video>
+<div class="topControl">
+<div class="progress">
+<span class="bufferBar"></span>
+<span class="timeBar"></span>
+</div>
+<div class="time">
+<span class="current"></span> / 
+<span class="duration"></span> 
+</div>
+</div>
+
+<div class="controllers">
+<button class="btnPlay" title="Play/Pause video"></button>
+<button class="prevvid disabled" title="Previous video"><i class="fa fa-step-forward fa-rotate-180"></i></button>
+<button class="nextvid" title="Next video"><i class="fa fa-step-forward"></i></button>
+<button class="sound sound2 btn" title="Mute/Unmute sound"></button>
+<div class="volume" title="Set volume">
+<span class="volumeBar"></span>
+</div>
+<button class="btnFS " style="float:right" title="full screen"></button>
+<ul class="speedcnt">
+<li class="spdx50">1.5</li>
+<li class="spdx25">1.25</li>
+<li class="spdx1 selected">Normal</li>
+<li class="spdx050">0.5</li>
+</ul>
+</div>
+
+<div class="loading"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+
+<center>
+<div class="videolist"><nav class="vids">
+<a class="link" href="https://admdn2.cdn.mangomolo.com/adtv/smil:adtv.stream.smil/playlist.m3u8">Abu Dhabi TV</a>
+<a class="link" href="https://admdn3.cdn.mangomolo.com/emarat/smil:emarat.stream.smil/playlist.m3u8">Al Emarat TV</a>
+<a class="link" href="https://admdn2.cdn.mangomolo.com/nagtv/smil:nagtv.stream.smil/playlist.m3u8">National Geographic</a>
+<a class="link" href="https://admdn1.cdn.mangomolo.com/adsports1/smil:adsports1.stream.smil/playlist.m3u8">Abu Dhabi Sports 1</a>
+<a class="link" href="https://admdn5.cdn.mangomolo.com/adsports2/smil:adsports2.stream.smil/playlist.m3u8">Abu Dhabi Sports 2</a>
+<a class="link" href="https://admdn3.cdn.mangomolo.com/adsports3/smil:adsports3.stream.smil/playlist.m3u8">Abu Dhabi Sports 3</a>
+<a class="link" href="https://dmisxthvll.cdn.mgmlcdn.com/dubaitvht/smil:dubaitv.stream.smil/playlist.m3u8">Dubai TV</a>
+<a class="link" href="https://dminnvll.cdn.mangomolo.com/dubaione/smil:dubaione.stream.smil/media.m3u8">Dubai One</a>
+<a class="link" href="https://dmieigthvll.cdn.mgmlcdn.com/samadubaiht/smil:samadubai.stream.smil/playlist.m3u8">Sama Dubai</a>
+<a class="link" href="https://dmiffthvll.cdn.mangomolo.com/noordubaitv/smil:noordubaitv.smil/playlist.m3u8">Noor Dubai TV</a>
+<a class="link" href="https://dmitnthvll.cdn.mangomolo.com/dubaisports/smil:dubaisports.smil/index.m3u8">Dubai Sports 1</a>
+<a class="link" href="https://dmitwlvvll.cdn.mangomolo.com/dubaisportshd/smil:dubaisportshd.smil/index.m3u8">Dubai Sports 2</a>
+<a class="link" href="https://dmitwlvvll.cdn.mangomolo.com/dubaisportshd5/smil:dubaisportshd5.smil/index.m3u8">Dubai Sports 3</a>
+<a class="link" href="https://dmisvthvll.cdn.mangomolo.com/events/smil:events.smil/playlist.m3u8">Dubai Racing 1</a>
+<a class="link" href="https://dmithrvll.cdn.mangomolo.com/dubairacing/smil:dubairacing.smil/playlist.m3u8">Dubai Racing 2</a>
+<a class="link" href="https://dmithrvll.cdn.mangomolo.com/dubaimubasher/smil:dubaimubasher.smil/playlist.m3u8">Dubai Racing 3</a>
+<a class="link" href="https://shls-mbc1na-prod-dub.shahid.net/out/v1/84ab37e99d6e4b16b33c6600f94f6ccb/index.m3u8">MBC 1</a>
+<a class="link" href="http://46.249.33.108:8000/live/LiVeMBc-Fuckyou-thief/B4fth7dfss4q23dFSEfs/106.m3u8">MBC 2</a>
+<a class="link" href="https://shls-mbc3-eur-prod-dub.shahid.net/out/v1/fce09dd6a967431a871efb3b8dec9f82/index.m3u8">MBC 3</a>
+<a class="link" href="https://freedemo1.xyz:2083/live/7zvSS3VrpRbR/BSFQTccn8nWt/104.m3u8">MBC 4</a>
+<a class="link" href="https://shls-mbc5-prod-dub.shahid.net/out/v1/2720564b6a4641658fdfb6884b160da2/index.m3u8">MBC 5</a>
+<a class="link" href="https://shls-mbcdramaksa-prod-dub.shahid.net/out/v1/ce0f0762d89e4394a856c5fd13e43645/index.m3u8">MBC Drama</a>
+<a class="link" href="https://shls-mbcplusdrama-prod-dub.shahid.net/out/v1/97ca0ce6fc6142f4b14c0a694af59eab/index.m3u8">MBC Plus Drama</a>
+<a class="link" href="http://eutv.teledunet.com:8080/live/tdn/10098.336375.517992571/10098.m3u8">MBC Max</a>
+<a class="link" href="https://shls-masr-prod-dub.shahid.net/out/v1/b7093401da27496797a8949de23f4578/index.m3u8">MBC Maser</a>
+<a class="link" href="https://shls-masr2-prod-dub.shahid.net/out/v1/f683685242b549f48ea8a5171e3e993a/index.m3u8">MBC Maser 2</a>
+<a class="link" href="https://shls-iraq-prod-dub.shahid.net/out/v1/c9bf1e87ea66478bb20bc5c93c9d41ea/index.m3u8">MBC Iraq</a>
+<a class="link" href="https://qatartv.akamaized.net/hls/live/2026573/qtv1/master.m3u8">Qatar TV 1</a>
+<a class="link" href="https://qatartv.akamaized.net/hls/live/2026574/qtv2/master.m3u8">Qatar TV 2</a>
+<a class="link" href="https://ssc-5-ak.akamaized.net/out/v1/6ae0a2ebab224c72ab9c298afeec8d91/index.m3u8">SSC 1</a>
+<a class="link" href="https://streamalkasscustom.azureedge.net/livehttporigin/smil:alkass1new.smil/playlist.m3u8">Alkass Sports One</a>
+<a class="link" href="https://streamalkasscustom.azureedge.net/livehttporigin/smil:alkass2new.smil/playlist.m3u8">Alkass Sports Two</a>
+<a class="link" href="https://streamalkasscustom.azureedge.net/livehttporigin/smil:alkass4new.smil/playlist.m3u8">Alkass Sports Four</a>
+<a class="link" href="https://msalkasslivecustom.azureedge.net/livehttporigin/smil:alkass5new.smil/playlist.m3u8">Alkass Sports Five</a>
+<a class="link" href="https://cdn.catiacast.video/abr/78054972db7708422595bc96c6e024ac/playlist.m3u8">Al Iraqiya TV</a>
+<a class="link" href="https://partne.cdn.mangomolo.com/omantv/smil:omantv.stream.smil/playlist.m3u8">Oman TV General</a>
+<a class="link" href="https://partwo.cdn.mangomolo.com/omcultural/smil:omcultural.stream.smil/playlist.m3u8">Oman TV Cultural</a>
+<a class="link" href="https://partne.cdn.mangomolo.com/omsport/smil:omsport.stream.smil/playlist.m3u8">Oman TV Sport</a>
+<a class="link" href="https://shls-rotanaplus-prod-dub.shahid.net/out/v1/1fc6103458be480b96e6a574b00fe1c0/index.m3u8">Rotana+</a>
+<a class="link" href="https://shls-rotanakhalijia-prod-dub.shahid.net/out/v1/a639fd49db684f1b8c063d398101a888/index.m3u8">Rotana Khalijia</a>
+<a class="link" href="https://hiplayer.hibridcdn.net/t/rotana-comedy.m3u8">Rotana Comedy</a>
+<a class="link" href="https://shls-rotanacinema-egy-prod-dub.shahid.net/out/v1/c39c0ecbcbdb46e890e91106776397a8/index.m3u8">Rotana Cinema 1</a>
+<a class="link" href="https://shls-rotanacinema-ksa-prod-dub.shahid.net/out/v1/6cee1c57ea7841e697eb15cefc98e0a6/index.m3u8">Rotana Cinema 2</a>
+<a class="link" href="https://shls-rotanakids-prod-dub.shahid.net/out/v1/df6e0eb3cdc4410b98209aafc8677cef/index.m3u8">Rotana Kids</a>
+<a class="link" href="https://weyyak-live.akamaized.net/weyyak_action/index.m3u8">Weyyak Action</a>
+<a class="link" href="https://weyyak-live.akamaized.net/weyyak_drama/index.m3u8">Weyyak Drama</a>
+<a class="link" href="https://weyyak-live.akamaized.net/weyyak_mix/index.m3u8">Weyyak Mix</a>
+<a class="link" href="https://live.alarabiya.net/alarabiapublish/alarabiya.smil/playlist.m3u8">Al Arabiya</a>
+<a class="link" href="https://live-hls-web-aja.getaj.net/AJA/index.m3u8">Al Jazeera Arabic</a>
+<a class="link" href="https://svs.itworkscdn.net/kablatvlive/kabtv1.smil/playlist.m3u8">Al Sharqiya</a>
+<a class="link" href="https://alaraby.cdn.octivid.com/alaraby/smil:alaraby.stream.smil/playlist.m3u8">Al Araby TV</a>
+<a class="link" href="https://svs.itworkscdn.net/alwoustalive/alwoustatv.smil/playlist.m3u8">Al Wousta TV</a>
+<a class="link" href="https://svs.itworkscdn.net/smc1live/smc1.smil/playlist.m3u8">Sharjah TV</a>
+<a class="link" href="https://svs.itworkscdn.net/smc4sportslive/smc4.smil/playlist.m3u8">Sharjah Sports</a>
+<a class="link" href="https://shls-cartoon-net-prod-dub.shahid.net/out/v1/dc4aa87372374325a66be458f29eab0f/index.m3u8">Cartoon Network</a>
+<a class="link" href="https://rt-arb.gcdn.co/live/rtarab/playlist.m3u8">RT Arabic</a>
+<a class="link" href="https://dwamdstream103.akamaized.net/hls/live/2015526/dwstream103/index.m3u8">DW Arabic</a>
+<a class="link" href="https://admdn1.cdn.mangomolo.com/yastv/smil:yastv.stream.smil/playlist.m3u8">Yas</a>
+</nav>
+</div>
+</div>
+</center>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+<script>
+$(document).ready(function()
+{var vid = $('#myvid');
+$(vid).attr("src", $("a.link:first").attr("href"));
+$("a.link:first").addClass("playing");
+$("a.link").on("click" , function  (event) {
+event.preventDefault();
+$(vid).attr("src", $(this).attr("href"));
+$(".vids a").removeClass("playing");
+$(this).addClass("playing");
+$('.btnPlay').addClass('paused');
+vid[0].play();
+if ($("a.link:first").hasClass("playing")) 
+{$(".prevvid").addClass("disabled");}
+else {$(".prevvid").removeClass("disabled");}
+if ($("a.link:last").hasClass("playing")) {
+$(".nextvid").addClass("disabled");}
+else {$(".nextvid").removeClass("disabled");}});
+vid.on('canplay', function() 
+{$('.loading').fadeOut(100);});
+var completeloaded = false;
+vid.on('canplaythrough', function() {
+completeloaded = true;
+});
+vid.on('ended', function() {
+$('.btnPlay').removeClass('paused');
+vid[0].pause();
+});
+vid.on('seeking', function() {
+if(!completeloaded) { 
+$('.loading').fadeIn(200);
+}   
+});
+vid.on('seeked', function() { });
+vid.on('waiting', function() {
+$('.loading').fadeIn(200);
+});
+vid.on('loadedmetadata', function() {
+$('.current').text(timeFormat(0));
+$('.duration').text(timeFormat(vid[0].duration));
+if(vid[0].muted)
+{
+updateVolume(0, 0);
+}else
+{
+updateVolume(0 , 0.7);
+}
+});
+var startBuffer = function() {
+var currentBuffer = vid[0].buffered.end(0);
+var maxduration = vid[0].duration;
+var perc = 100 * currentBuffer / maxduration;
+$('.bufferBar').css('width',perc+'%');
+if(currentBuffer < maxduration) {
+setTimeout(startBuffer, 500);
+}
+};  
+vid.on('timeupdate', function() {
+var currentPos = vid[0].currentTime;
+var maxduration = vid[0].duration;
+var perc = 100 * currentPos / maxduration;
+$('.timeBar').css('width',perc+'%');    
+$('.current').text(timeFormat(currentPos)); 
+});
+vid.on('click', function() { playpause(); } );
+$('.btnPlay').on('click', function() { playpause(); } );
+var playpause = function() {
+if(vid[0].paused || vid[0].ended) {
+$('.btnPlay').addClass('paused');
+vid[0].play();
+}
+else {
+$('.btnPlay').removeClass('paused');
+vid[0].pause();
+}
+};
+var timeDrag = false;
+$('.progress').on('mousedown', function(e) {
+timeDrag = true;
+updatebar(e.pageX);
+});
+$(document).on('mouseup', function(e) {
+if(timeDrag) {
+timeDrag = false;
+updatebar(e.pageX);
+}
+});
+$(document).on('mousemove', function(e) {
+if(timeDrag) {
+updatebar(e.pageX);
+}
+});
+var updatebar = function(x) {
+var progress = $('.progress');
+
+var maxduration = vid[0].duration;
+var position = x - progress.offset().left;
+var percentage = 100 * position / progress.width();
+if(percentage > 100) {
+percentage = 100;
+}
+if(percentage < 0) {
+percentage = 0;
+}
+$('.timeBar').css('width',percentage+'%');  
+vid[0].currentTime = maxduration * percentage / 100;
+};
+$('.sound').click(function() {
+vid[0].muted = !vid[0].muted;
+$(this).toggleClass('muted');
+if(vid[0].muted) {
+$('.volumeBar').css('width',0);
+}
+else{
+$('.volumeBar').css('width', vid[0].volume*100+'%');
+}
+});
+var volumeDrag = false;
+$('.volume').on('mousedown', function(e) {
+volumeDrag = true;
+vid[0].muted = false;
+$('.sound').removeClass('muted');
+updateVolume(e.pageX);
+});
+$(document).on('mouseup', function(e) {
+if(volumeDrag) {
+volumeDrag = false;
+updateVolume(e.pageX);
+}
+});
+$(document).on('mousemove', function(e) {
+if(volumeDrag) {
+updateVolume(e.pageX);
+}
+});
+var updateVolume = function(x, vol) {
+var volume = $('.volume');
+var percentage;
+if(vol) {
+percentage = vol * 100;
+}
+else {
+var position = x - volume.offset().left;
+percentage = 100 * position / volume.width();
+}
+if(percentage > 100) {
+percentage = 100;
+}
+if(percentage < 0) {
+percentage = 0;
+}
+$('.volumeBar').css('width',percentage+'%');    
+vid[0].volume = percentage / 100;
+if(vid[0].volume == 0){
+$('.sound').removeClass('sound2').addClass('muted');
+}
+else if(vid[0].volume > 0.5){
+$('.sound').removeClass('muted').addClass('sound2');
+}
+else{
+$('.sound').removeClass('muted').removeClass('sound2');
+}
+};
+$('.spdx50').on('click', function() { fastfowrd(this, 1.5); });
+$('.spdx25').on('click', function() { fastfowrd(this, 1.25); });
+$('.spdx1').on('click', function() { fastfowrd(this, 1); });
+$('.spdx050').on('click', function() { fastfowrd(this, 0.5); });
+var fastfowrd = function(obj, spd) {
+$('.speedcnt li').removeClass('selected');
+$(obj).addClass('selected');
+vid[0].playbackRate = spd;
+vid[0].play();
+$("ul.speedcnt").fadeOut("fast");
+$('.btnPlay').addClass('paused');
+};
+$(".btnspeed").click( function() {
+
+$("ul.speedcnt").slideToggle(100);
+});
+
+$('.btnFS').on('click', function() {
+if($.isFunction(vid[0].webkitEnterFullscreen)) {
+vid[0].webkitEnterFullscreen();
+}   
+else if ($.isFunction(vid[0].mozRequestFullScreen)) {
+vid[0].mozRequestFullScreen();
+}
+else {
+alert('Your browsers doesn\'t support fullscreen');
+}
+});
+$('.btnLight').click(function() {
+$(this).toggleClass('lighton');
+if(!$(this).hasClass('lighton')) {
+$('body').append('<div class="overlay"></div>');
+$('.overlay').css({
+'position':'absolute',
+'width':100+'%',
+'height':$(document).height(),
+'background':'#000',
+'opacity':0.9,
+'top':0,
+'left':0,
+'z-index':999
+});
+$('.vidcontainer').css({
+'z-index':1000
+});
+}
+else {
+$('.overlay').remove();
+}
+});
+$(".prevvid").click(function(){
+$(vid).attr("src", $(".playing").prev().attr("href"));
+vid[0].play();
+$(".playing").prev().addClass("playing");
+$(".playing:last").removeClass("playing");
+$('.btnPlay').addClass('paused');
+$(".nextvid").removeClass("disabled");
+if ($("a.link:first").hasClass("playing")) {
+$(this).addClass("disabled");
+}else {
+$(this).removeClass("disabled");
+};
+});
+$(".nextvid").click(function(){
+$(vid).attr("src", $(".playing").next().attr("href"));
+vid[0].play();
+$(".playing").next().addClass("playing");
+$(".playing:first").removeClass("playing");
+$('.btnPlay').addClass('paused');
+$(".prevvid").removeClass("disabled");
+if ($("a.link:last").hasClass("playing")) {
+$(this).addClass("disabled");
+}else {
+$(this).removeClass("disabled");
+};
+});
+var timeFormat = function(seconds){
+var m = Math.floor(seconds/60)<10 ? "0"+Math.floor(seconds/60) : Math.floor(seconds/60);
+var s = Math.floor(seconds-(m*60))<10 ? "0"+Math.floor(seconds-(m*60)) : Math.floor(seconds-(m*60));
+return m+":"+s;
+};
+$(".closeme , .bigplay").click(function(){
+$("this,.ads,.bigplay").fadeOut(200);
+vid[0].play();
+$('.btnPlay').addClass('paused');
+});
+});
+function myFunction() {
+document.getElementById("myDropdown").classList.toggle("show");
+}
+window.onclick = function(event) {
+if (!event.target.matches('.dropbtn')) {
+var dropdowns = document.getElementsByClassName("dropdown-content");
+var i;
+for (i = 0; i < dropdowns.length; i++) {
+var openDropdown = dropdowns[i];
+if (openDropdown.classList.contains('show')) {
+openDropdown.classList.remove('show');
+}
+}
+}
+}
+</script>
+</body>
+</html>
