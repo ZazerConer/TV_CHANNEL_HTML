@@ -2,7 +2,7 @@
 
 Link the file.html to the CDN for publishing. 
 
-Open the file.html in "View raw" then copy the link URL and paste it into the URL in the first box at the top. 
+Open the channel file.html in "View raw" then copy the link URL and paste it into the URL in the first box at the top. 
 
 ### Open here: http://raw.githack.com
 
