@@ -1,4 +1,4 @@
-# Free channel TV with html video player
+## Free channel TV with html video player
 
 Link the file.html to the cdn for publishing. 
 
@@ -10,6 +10,6 @@ Then the second and third URL links will appear, choose which one you want to us
 
 ## Example below
 
-### 1. Use this URL in production.
+#### 1. Use this URL in production.
 
-### 2. Use this URL for development.
+#### 2. Use this URL for development.
