@@ -1,6 +1,6 @@
 ## Free TV channels with html video player
 
-Link the file.html to the cdn for publishing. 
+Link the file.html to the CDN for publishing. 
 
 Open the file.html in "view raw" then copy the link URL and paste it into the URL in the first box at the top. 
 
