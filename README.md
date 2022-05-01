@@ -1,4 +1,4 @@
-## Free channel TV with html video player
+## Free TV channels with html video player
 
 Link the file.html to the cdn for publishing. 
 
