@@ -13,3 +13,7 @@ Then the second and third URL links will appear, choose which one you want to us
 #### 1. Use this URL in production.
 
 #### 2. Use this URL for development.
+
+## Buy Me a Coffee
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/zaidzer9k)
