@@ -2,9 +2,9 @@
 
 **_Malaysia TV Channels_** :malaysia:
 
-- RTM
-- Media Prima
-- MyTV
+- RTM []
+- Media Prima [See](https://github.com/ZazerConer/TV_CHANNEL_HTML/tree/main/MediaPrima)
+- MyTV []
 
 **_Singapore TV Channels_** :singapore:
 
@@ -27,6 +27,10 @@ Then the second and third URL links will appear, choose which one you want to us
 > Use this URL in production. _(Recommended)_
 
 > Use this URL for development.
+
+<br>
+
+<hr>
 
 ## Buy Me a Coffee
 
