@@ -6,7 +6,7 @@
 - Media Prima
 - MyTV
 
-**_Singapre TV Channels_**
+**_Singapore TV Channels_**
 
 - meWATCH
 
