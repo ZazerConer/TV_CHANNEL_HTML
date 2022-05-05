@@ -2,13 +2,13 @@
 
 **_Malaysia TV Channels_** :malaysia:
 
-- RTM []
+- RTM [See](https://github.com/ZazerConer/TV_CHANNEL_HTML/tree/main/RTM)
 - Media Prima [See](https://github.com/ZazerConer/TV_CHANNEL_HTML/tree/main/MediaPrima)
-- MyTV []
+- MyTV [See](https://github.com/ZazerConer/TV_CHANNEL_HTML/tree/main/MyTV)
 
 **_Singapore TV Channels_** :singapore:
 
-- meWATCH
+- meWATCH [See](https://github.com/ZazerConer/TV_CHANNEL_HTML/tree/main/meWATCH)
 
 ## How to publish?
 
