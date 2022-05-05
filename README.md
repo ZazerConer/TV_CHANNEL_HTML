@@ -22,11 +22,11 @@ Open the file.html in "View raw" then copy the link URL and paste it into the UR
 
 Then the second and third URL links will appear, choose which one you want to use to publish. 
 
-## Example below
+**Example below :**
 
-1. Use this URL in production. _(Recommended)_
+> Use this URL in production. _(Recommended)_
 
-2. Use this URL for development.
+> Use this URL for development.
 
 ## Buy Me a Coffee
 
