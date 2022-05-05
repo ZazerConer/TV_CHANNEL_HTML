@@ -1,5 +1,19 @@
 ## Free TV channels with HTML video player
 
+**_Malaysia TV Channels_**
+
+- RTM
+- Media Prima
+- MyTV
+
+**_Singapre TV Channels_**
+
+- meWATCH
+
+## How to publish?
+
+#### Follow this step.
+
 Link the file.html to the CDN for publishing. 
 
 Open the channel file.html in "View raw" then copy the link URL and paste it into the URL in the first box at the top. 
@@ -10,9 +24,9 @@ Then the second and third URL links will appear, choose which one you want to us
 
 ## Example below
 
-#### 1. Use this URL in production. (Recommended)
+_1. Use this URL in production._ (Recommended)
 
-#### 2. Use this URL for development.
+_2. Use this URL for development._
 
 ## Buy Me a Coffee
 
