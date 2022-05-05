@@ -12,7 +12,7 @@
 
 ## How to publish?
 
-#### Follow this step.
+**Follow this step.**
 
 Link the file.html to the CDN for publishing. 
 
@@ -24,9 +24,9 @@ Then the second and third URL links will appear, choose which one you want to us
 
 ## Example below
 
-_1. Use this URL in production._ (Recommended)
+1. Use this URL in production. _(Recommended)_
 
-_2. Use this URL for development._
+2. Use this URL for development.
 
 ## Buy Me a Coffee
 
