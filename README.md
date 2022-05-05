@@ -1,12 +1,12 @@
 ## Free TV channels with HTML video player
 
-**_Malaysia TV Channels_**
+**_Malaysia TV Channels_** :malaysia:
 
 - RTM
 - Media Prima
 - MyTV
 
-**_Singapore TV Channels_**
+**_Singapore TV Channels_** :singapore:
 
 - meWATCH
 
