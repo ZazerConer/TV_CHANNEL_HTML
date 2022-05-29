@@ -29,9 +29,3 @@ Then the second and third URL links will appear, choose which one you want to us
 > Use this URL for development.
 
 <br>
-
-<hr>
-
-## Buy Me a Coffee
-
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/zaidzer9k)
