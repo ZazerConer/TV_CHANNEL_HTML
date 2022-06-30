@@ -52,7 +52,7 @@ events: {
 });
 } 
 
-// Change border color (Play-Pause)
+// Change border color (Play-Pause-Buffering-Unstarted-Ended-Video cued).
 function onPlayerReady(event) {
 document.getElementById('iframe').style.borderColor = '#FF6D00';
 }
@@ -79,7 +79,7 @@ function onPlayerStateChange(event) {
 changeBorderColor(event.data);
 }
 
-// Set volume to '100' when screen changes to (1020px)
+// Set volume to '100' when screen changes to (1020px).
 function onPlayerReady(event) {
   event.target.setVolume(100);
   event.target.playVideo();
