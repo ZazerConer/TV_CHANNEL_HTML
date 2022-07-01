@@ -29,20 +29,19 @@ Then the second and third URL links will appear, choose which one you want to us
 > Use this URL for development.
 
 <hr>
-<br>
 
 ## Why CDN?
 
-**A content delivery network (CDN) is a way to send content from your files to people more quickly and efficiently, based on their geographic location. A CDN consists of a network of servers ("points of presence," or POPs) in locations around the world. 
+A content delivery network (CDN) is a way to send content from your files to people more quickly and efficiently, based on their geographic location. A CDN consists of a network of servers ("points of presence," or POPs) in locations around the world. 
 
 The CDN server closest to the user is known as a “edge server” - when people request content from a website sent through a CDN, they are connected to the nearest edge server, ensuring the best possible online experience. 
 
 There are actually other ways to publish/preview the file.html. 
 
-Add and place this URL in the first available URL. 
+**Add and place this URL in the first available URL.**
 _"https://htmlpreview.github.io/?"_
 
-An example looks like this.
+**An example looks like this.**
 "https://htmlpreview.github.io/?https://raw.githubusercontent.com/username/reponame/main/filename/index.html" 
 
-But for me "CDN" is better than using the method as above.**
+But for me **"CDN"** is better than using the method as above.**
