@@ -39,9 +39,9 @@ The CDN server closest to the user is known as a “edge server” - when people
 There are actually other ways to publish/preview the file.html. 
 
 **Add and place this URL in the first available URL.**
-_"https://htmlpreview.github.io/?"_
+_https://htmlpreview.github.io/?_
 
 **An example looks like this.**
-"https://htmlpreview.github.io/?https://raw.githubusercontent.com/username/reponame/main/filename/index.html" 
+_https://htmlpreview.github.io/?https://raw.githubusercontent.com/username/reponame/main/filename/index.html_
 
-But for me **"CDN"** is better than using the method as above.**
+But for me **"CDN"** is better than using the method as above.
