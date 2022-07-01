@@ -44,4 +44,6 @@ _https://htmlpreview.github.io/?_
 **An example looks like this.**
 _https://htmlpreview.github.io/?https://raw.githubusercontent.com/username/reponame/main/filename/index.html_
 
+And you can preview the file.
+
 But for me **"CDN"** is better than using the method as above.
