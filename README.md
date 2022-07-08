@@ -48,4 +48,4 @@ _https://htmlpreview.github.io/?https://github.com/username/reponame/main/filena
 
 And you can preview the file.
 
-But for me **"CDN"** is better than using the method as above.
+But the possibilities for video players may not be visible. So the easy way is to use the method I mentioned above which is to use "CDN" to view the html file of the video player.
